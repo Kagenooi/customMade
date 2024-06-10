@@ -113,10 +113,10 @@
   width: 100%;
   background: #303030;
   padding: 19px 0 15px;
-  display: none;
 }
 @media (max-width: 768px) {
   .navbar {
+    display: none;
     max-width: 768px;
   }
   .navbar .orderBtn {
