@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="scss/reviews/reviews.css">
+</head>
+<body>
+    <div id="adaptive">
+        
+        <!-- modals start -->
+        <form action="">
+            <div class="modal" id="order">
+                <div class="modal__wrapper">
+                    <button type="button" class="modal__closeBtn" onclick="modalRemove()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <line x1="26.6954" y1="9.01762" x2="9.01768" y2="26.6953" stroke="#171717" />
+                            <line x1="26.583" y1="26.4512" x2="8.9053" y2="8.77354" stroke="#171717" />
+                        </svg>
+                    </button>
+                    <h2 class="modal__title">Заказать проект</h2>
+                    <p class="modal__pr">Разрешите нам познакомиться с вами и узнать о вашем проекте. Мы подготовим для
+                        вас индивидуальное предложение.</p>
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Как к вам обращаться">
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Номер телефона">
+                    <textarea name="" id="" cols="30" rows="10" class="modal__textarea"
+                        placeholder="Ваше сообщение"></textarea>
+                    <button type="button" class="reviewBtn"  onclick="modalToggle('#success')">Отправить сообщение</button>
+                </div>
+            </div>
+
+            <div class="modal" id="success">
+                <div class="modal__wrapper">
+                    <h2 class="modal__title">Ваше сообщение отправлено!</h2>
+                    <p class="modal__pr">Спасибо за ваше обращение. <br><br> Мы свяжемся с Вами в ближайшее время, чтобы проконсультировать по Вашему проекту. </p>
+                    <button type="button" class="reviewBtn" onclick="modalRemove()">Закрыть окно</button>
+                </div>
+            </div>
+        </form>
+        <!-- modals end -->
+
+        <nav class="navbar">
+            <div class="navbar__wrapper">
+                <a href="" class="navbar__logo">
+                    <img src="images/logo.svg" alt="" class="navbar__logo_img">
+                </a>
+                <ul class="navbar__menu">
+                    <li><a href="about.html" class="navbar__menu_link">О нас</a></li>
+                    <li><a href="services.html" class="navbar__menu_link">Услуги</a></li>
+                    <li><a href="portfolio.html" class="navbar__menu_link">Портфолио</a></li>
+                    <li><a href="prices.html" class="navbar__menu_link">Цены</a></li>
+                </ul>
+                <div class="navbar__right">
+                    <address class="navbar__address">
+                        <p class="navbar__address_city">Санкт-Петербург</p>
+                        <p class="navbar__address_street">ул. Уральская, 13</p>
+                    </address>
+                    <button class="navbar__btn orderBtn" onclick="modalToggle('#order')">Заказать проект</button>
+                    <div class="navbar__burger">
+                        <button class="navbar__burger_btn" onclick="burger(this)" data-active="#burger">
+                            <span class="txt">МЕНЮ</span>
+                            <span class="lines">
+                                <span class="line"></span>
+                                <span class="line remove"></span>
+                                <span class="line"></span>
+                            </span>
+                        </button>
+                        <div class="navbar__burger_content" id="burger">
+                            <ul class="navbar__burger_menu">
+                                <li><a href="about.html" class="navbar__burger_menu_link">О нас</a></li>
+                                <li>
+                                    <a href="services.html" class="navbar__burger_menu_link active">Услуги</a>
+                                    <ul class="navbar__burger_submenu">
+                                        <li><a href="interior.html" class="navbar__burger_submenu_link">Дизайн
+                                                интерьера</a></li>
+                                        <li><a href="finishing.html" class="navbar__burger_submenu_link">Отделочные
+                                                работы</a></li>
+                                        <li><a href="supervision.html" class="navbar__burger_submenu_link">Авторский
+                                                надзор</a></li>
+                                        <li><a href="decoration.html"
+                                                class="navbar__burger_submenu_link">Декорирование</a></li>
+                                        <li><a href="redevelopment.html"
+                                                class="navbar__burger_submenu_link">Согласование перепланировки</a></li>
+                                        <li><a href="engineering.html" class="navbar__burger_submenu_link">Архитектурное
+                                                проектирование</a></li>
+                                        <li><a href="furniture.html" class="navbar__burger_submenu_link">Авторская
+                                                мебель</a></li>
+                                    </ul>
+                                </li>
+                                <hr>
+                                <li><a href="prices.html" class="navbar__burger_menu_link">Стоимость</a></li>
+                                <li><a href="portfolio.html" class="navbar__burger_menu_link">Портфолио</a></li>
+                                <li><a href="blog.html" class="navbar__burger_menu_link">Блог</a></li>
+                                <hr>
+                                <li><a href="contact.html" class="navbar__burger_menu_link">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="reviews">
+            <h1 class="reviews__title">Отзывы</h1>
+            <div class="reviews__slider">
+                <div class="swiper" id="reviews">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="reviews__slider_item">
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user1.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Екатерина @by_eka</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Яна, много всего хочется сказать. В первую очередь выражаю свою благодарность за качественную работу.   За оперативное решение любых возникающих вопросов. </p>
+                                        <p class="el__desc_pr">Мы с вами ровно год. Начиная с разработки дизайн проекта и до конца ремонтных работ.  За это время происходило многое, даже во время изоляции всвязи с пандемией вы находили способы для решения возникающих ситуаций. За мобильность.</p>
+                                        <p class="el__desc_pr">Мы ездили в разные уголки нашего большого города Санкт-Петербурга, вы регулярно приезжали на объект, наблюдали за ходом работ и, если нужна была корректировка, некоторые вопросы решали без моего участия. Все согласно согласованному дизайн проекту. </p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews1.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user2.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Илона @ilona_kos</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Яна, спасибо тебе большое за чудесную работу! Дизайн получился очень крутой. За твой профессионализм, за то, что всегда знаешь, что «в тренде» сейчас и что будет в будущем.</p>
+                                        <p class="el__desc_pr">С тобой легко сотрудничать, улавливаешь все наши мысли и желания. Когда очень хочется брутального лофта, но в процессе понимаешь, что и «розового» не хватает. Не пришлось пересматривать десятки вариантов проекта. </p>
+                                        <p class="el__desc_pr">А какое счастье – сопровождение дизайнера, когда тебе не надо носиться в поисках нужной плитки/мебели/материалов и т.п.! Какая экономия времени и нервов. От меня только требуется выбрать один из друх-трех вариантов, оплатить а всем остальным занимается Яна! </p>
+                                        <p class="el__desc_pr">Когда в процессе ремонта «всплывают» нюансы, Яна предлагает правильные решения! В общем, рекомендую и буду рекомендовать Яну и ее студию!</p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews2.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user3.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Наталья @natalisavelieva</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Дизайнера искала долго, смотрела несколько ценовых диапазонов. Кто-то отказал сам, кому-то отказала я. Яну мне порекомендовал очень известный и дорогущий дизайнер, и для меня это было знаком. </p>
+                                        <p class="el__desc_pr">Сильно впечатлило, что из 2 личных встреч Яна поняла, что именно я хочу и это поразительно, так чувствовать клиента! </p>
+                                        <p class="el__desc_pr">Хочу отметить деликатность в некоторых моментах, связанных с финансами. </p>
+                                        <p class="el__desc_pr">Считаю своим долгом рекомендовать Яну) Уверена, сотрудничество с ней будет очень полезным и комфортным, в том числе и с человеческой точки зрения) Можно посмотреть картинки проекта моего дома – я в восторге!</p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews3.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="reviews__slider_item">
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user1.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Екатерина @by_eka</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Яна, много всего хочется сказать. В первую очередь выражаю свою благодарность за качественную работу.   За оперативное решение любых возникающих вопросов. </p>
+                                        <p class="el__desc_pr">Мы с вами ровно год. Начиная с разработки дизайн проекта и до конца ремонтных работ.  За это время происходило многое, даже во время изоляции всвязи с пандемией вы находили способы для решения возникающих ситуаций. За мобильность.</p>
+                                        <p class="el__desc_pr">Мы ездили в разные уголки нашего большого города Санкт-Петербурга, вы регулярно приезжали на объект, наблюдали за ходом работ и, если нужна была корректировка, некоторые вопросы решали без моего участия. Все согласно согласованному дизайн проекту. </p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews1.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user2.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Илона @ilona_kos</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Яна, спасибо тебе большое за чудесную работу! Дизайн получился очень крутой. За твой профессионализм, за то, что всегда знаешь, что «в тренде» сейчас и что будет в будущем.</p>
+                                        <p class="el__desc_pr">С тобой легко сотрудничать, улавливаешь все наши мысли и желания. Когда очень хочется брутального лофта, но в процессе понимаешь, что и «розового» не хватает. Не пришлось пересматривать десятки вариантов проекта. </p>
+                                        <p class="el__desc_pr">А какое счастье – сопровождение дизайнера, когда тебе не надо носиться в поисках нужной плитки/мебели/материалов и т.п.! Какая экономия времени и нервов. От меня только требуется выбрать один из друх-трех вариантов, оплатить а всем остальным занимается Яна! </p>
+                                        <p class="el__desc_pr">Когда в процессе ремонта «всплывают» нюансы, Яна предлагает правильные решения! В общем, рекомендую и буду рекомендовать Яну и ее студию!</p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews2.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user3.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Наталья @natalisavelieva</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Дизайнера искала долго, смотрела несколько ценовых диапазонов. Кто-то отказал сам, кому-то отказала я. Яну мне порекомендовал очень известный и дорогущий дизайнер, и для меня это было знаком. </p>
+                                        <p class="el__desc_pr">Сильно впечатлило, что из 2 личных встреч Яна поняла, что именно я хочу и это поразительно, так чувствовать клиента! </p>
+                                        <p class="el__desc_pr">Хочу отметить деликатность в некоторых моментах, связанных с финансами. </p>
+                                        <p class="el__desc_pr">Считаю своим долгом рекомендовать Яну) Уверена, сотрудничество с ней будет очень полезным и комфортным, в том числе и с человеческой точки зрения) Можно посмотреть картинки проекта моего дома – я в восторге!</p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews3.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="reviews__slider_item">
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user1.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Екатерина @by_eka</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Яна, много всего хочется сказать. В первую очередь выражаю свою благодарность за качественную работу.   За оперативное решение любых возникающих вопросов. </p>
+                                        <p class="el__desc_pr">Мы с вами ровно год. Начиная с разработки дизайн проекта и до конца ремонтных работ.  За это время происходило многое, даже во время изоляции всвязи с пандемией вы находили способы для решения возникающих ситуаций. За мобильность.</p>
+                                        <p class="el__desc_pr">Мы ездили в разные уголки нашего большого города Санкт-Петербурга, вы регулярно приезжали на объект, наблюдали за ходом работ и, если нужна была корректировка, некоторые вопросы решали без моего участия. Все согласно согласованному дизайн проекту. </p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews1.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user2.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Илона @ilona_kos</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Яна, спасибо тебе большое за чудесную работу! Дизайн получился очень крутой. За твой профессионализм, за то, что всегда знаешь, что «в тренде» сейчас и что будет в будущем.</p>
+                                        <p class="el__desc_pr">С тобой легко сотрудничать, улавливаешь все наши мысли и желания. Когда очень хочется брутального лофта, но в процессе понимаешь, что и «розового» не хватает. Не пришлось пересматривать десятки вариантов проекта. </p>
+                                        <p class="el__desc_pr">А какое счастье – сопровождение дизайнера, когда тебе не надо носиться в поисках нужной плитки/мебели/материалов и т.п.! Какая экономия времени и нервов. От меня только требуется выбрать один из друх-трех вариантов, оплатить а всем остальным занимается Яна! </p>
+                                        <p class="el__desc_pr">Когда в процессе ремонта «всплывают» нюансы, Яна предлагает правильные решения! В общем, рекомендую и буду рекомендовать Яну и ее студию!</p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews2.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                                <div class="el">
+                                    <div class="el__desc">
+                                        <div class="el__desc_header">
+                                            <img src="images/user3.png" alt="" class="el__desc_header_userPic">
+                                            <h3 class="el__desc_header_userName">Наталья @natalisavelieva</h3>
+                                        </div>
+                                        <p class="el__desc_pr">Дизайнера искала долго, смотрела несколько ценовых диапазонов. Кто-то отказал сам, кому-то отказала я. Яну мне порекомендовал очень известный и дорогущий дизайнер, и для меня это было знаком. </p>
+                                        <p class="el__desc_pr">Сильно впечатлило, что из 2 личных встреч Яна поняла, что именно я хочу и это поразительно, так чувствовать клиента! </p>
+                                        <p class="el__desc_pr">Хочу отметить деликатность в некоторых моментах, связанных с финансами. </p>
+                                        <p class="el__desc_pr">Считаю своим долгом рекомендовать Яну) Уверена, сотрудничество с ней будет очень полезным и комфортным, в том числе и с человеческой точки зрения) Можно посмотреть картинки проекта моего дома – я в восторге!</p>
+                                    </div>
+                                    <div class="el__pic">
+                                        <div class="el__pic_content">
+                                            <button type="button" class="moreBtn">Посмотреть проект</button>
+                                        </div>
+                                        <img src="images/reviews3.png" alt="" class="el__pic_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteControls">
+                    <button type="button" class="whiteControls__btn swiper-button-prev" id="reviewsPrevBtn">
+                        <img src="images/whiteSwArr.svg" alt="">
+                    </button>
+                    <div class="swiper-pagination"></div>
+                    <button type="button" class="whiteControls__btn swiper-button-next" id="reviewsNextBtn">
+                        <img src="images/whiteSwArr.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer__content">
+                <div class="footer__cop">
+                    <a href="index.html" class="footer__cop_logo">
+                        <img src="images/footerLogo.svg" alt="" class="footer__cop_logo_pic">
+                    </a>
+                    <p class="footer__cop_pr">
+                        <img src="images/copyright.svg" alt="" class="footer__cop_pr_icon">
+                        2010-2022 Студия интерьера
+                    </p>
+                    <p class="footer__cop_pr">Custom Made, все права защищены</p>
+                </div>
+                <div class="footer__nav">
+                    <ul class="footer__nav_menu">
+                        <li><a href="about.html" class="footer__nav_menu_link">О нас</a></li>
+                        <li><a href="portfolio.html" class="footer__nav_menu_link">Портфолио</a></li>
+                        <li><a href="prices.html" class="footer__nav_menu_link">Цены</a></li>
+                        <li><a href="services.html" class="footer__nav_menu_link">Услуги</a></li>
+                        <li><a href="blog.html" class="footer__nav_menu_link">Блог</a></li>
+                    </ul>
+                    <ul class="footer__nav_menu">
+                        <li><a href="interior.html" class="footer__nav_menu_link">Дизайн интерьера</a></li>
+                        <li><a href="finishing.html" class="footer__nav_menu_link">Отделочные работы</a></li>
+                        <li><a href="cottages.html" class="footer__nav_menu_link">Коттеджи</a></li>
+                        <li><a href="furniture.html" class="footer__nav_menu_link">Мебель</a></li>
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <ul class="footer__social_menu">
+                        <li>
+                            <a href="mailto:cmade.spb@mail.ru" class="footer__social_menu_link">
+                                <img src="images/email.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">cmade.spb@mail.ru</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/instagram.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/vk-logo.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson_designer</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="footer__social_menu">
+                        <li>
+                            <a href="www.t.me/peterson.designer" class="footer__social_menu_link">
+                                <img src="images/telegram.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">@peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/Vector.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/path64.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__address">
+                    <div class="footer__address_item">
+                        <img src="images/location.svg" alt="" class="footer__address_item_icon">
+                        <div class="footer__address_item_content">
+                            <p class="footer__address_item_pr">Санкт-Петербург</p>
+                            <p class="footer__address_item_pr">ул. Уральская, 13</p>
+                        </div>
+                    </div>
+                    <div class="footer__address_item">
+                        <img src="images/phone.svg" alt="" class="footer__address_item_icon">
+                        <div class="footer__address_item_content">
+                            <a href="tel:+79052047774" class="footer__address_item_link">+7(905) 204-77-74</a>
+                            <a href="tel:+78127150275" class="footer__address_item_link">+7(812) 715-02-75</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script type="module" src="js/reviews.js"></script>
+</body>
+</html>

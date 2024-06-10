@@ -1,0 +1,32 @@
+@import '../main';
+@import '../nav';
+@import '../footer';
+@import '../modals';
+@import '../servicesHeader';
+@import '../advan';
+@import '../cons';
+@import '../consultation';
+@import '../price';
+
+.cons,
+.consultation .cons,
+.consultationForm,
+.consultationSuccess {
+    padding: 0;
+}
+.consultationForm {
+    max-width: 360px;
+}
+.consultation .cons {
+    max-width: 100%;
+}
+
+
+.advan {
+
+    &__title {
+        @media (max-width: 768px) {
+            max-width: 100%;
+        }
+    }
+}

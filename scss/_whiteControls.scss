@@ -1,0 +1,73 @@
+.whiteControls {
+    position: relative;
+    width: 100%;
+    max-width: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    grid-gap: 10px;
+    margin-left: -10px;
+    margin-top: 55px;
+
+    * {
+        color: #fff;
+    }
+
+    &__btn {
+        display: block;
+        position: relative;
+        z-index: 1070;
+        top: 10px;
+        padding: 5px 0;
+        width: auto;
+        height: auto;
+
+        &::after {
+            display: none;
+        }
+
+        img {
+            transition: .2s;
+            opacity: .5;
+        }
+
+        &:hover {
+            img {
+                transition: .2s;
+                opacity: 1;
+            }
+        }
+
+        &.swiper-button-prev {
+            img {
+                transform: rotateZ(180deg);
+            }
+        }
+    }
+
+    .swiper-pagination {
+        align-items: center;
+        grid-gap: 4px;
+        display: flex;
+        top: 0;
+        left: 0;
+        position: relative;
+        font-size: 20px;
+        font-weight: 400;
+        z-index: 1060;
+        width: 100%;
+        height: auto;
+        max-width: 50px;
+        justify-content: center;
+
+        &-current {
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        &-total {
+            font-size: 15px;
+            font-weight: 400;
+        }
+    }
+}

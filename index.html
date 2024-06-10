@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="scss/index/index.css">
+</head>
+
+<body>
+
+    <div id="adaptive">
+
+        <!-- modals start -->
+        <form action="">
+            <div class="modal" id="order">
+                <div class="modal__wrapper">
+                    <button type="button" class="modal__closeBtn" onclick="modalRemove()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <line x1="26.6954" y1="9.01762" x2="9.01768" y2="26.6953" stroke="#171717" />
+                            <line x1="26.583" y1="26.4512" x2="8.9053" y2="8.77354" stroke="#171717" />
+                        </svg>
+                    </button>
+                    <h2 class="modal__title">Заказать проект</h2>
+                    <p class="modal__pr">Разрешите нам познакомиться с вами и узнать о вашем проекте. Мы подготовим для
+                        вас индивидуальное предложение.</p>
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Как к вам обращаться">
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Номер телефона">
+                    <textarea name="" id="" cols="30" rows="10" class="modal__textarea"
+                        placeholder="Ваше сообщение"></textarea>
+                    <button type="button" class="reviewBtn" onclick="modalToggle('#success')">Отправить
+                        сообщение</button>
+                </div>
+            </div>
+
+            <div class="modal" id="question">
+                <div class="modal__wrapper">
+                    <button type="button" class="modal__closeBtn" onclick="modalRemove()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <line x1="26.6954" y1="9.01762" x2="9.01768" y2="26.6953" stroke="#171717" />
+                            <line x1="26.583" y1="26.4512" x2="8.9053" y2="8.77354" stroke="#171717" />
+                        </svg>
+                    </button>
+                    <h2 class="modal__title">Задать вопрос</h2>
+                    <p class="modal__pr">Если Вам нужна консультация по проекту, напишите сообщение. Мы свяжемся с Вами
+                        и ответим на интересующие вопросы.</p>
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Как к вам обращаться">
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Номер телефона">
+                    <textarea name="" id="" cols="30" rows="10" class="modal__textarea"
+                        placeholder="Ваше сообщение"></textarea>
+                    <button type="button" class="reviewBtn" onclick="modalToggle('#success')">Отправить
+                        сообщение</button>
+                </div>
+            </div>
+
+            <div class="modal" id="success">
+                <div class="modal__wrapper">
+                    <h2 class="modal__title">Ваше сообщение отправлено!</h2>
+                    <p class="modal__pr">Спасибо за ваше обращение. <br><br> Мы свяжемся с Вами в ближайшее время, чтобы
+                        проконсультировать по Вашему проекту. </p>
+                    <button type="button" class="reviewBtn" onclick="modalRemove()">Закрыть окно</button>
+                </div>
+            </div>
+        </form>
+        <!-- modals end -->
+
+        <nav class="navbar">
+            <div class="navbar__wrapper">
+                <a href="" class="navbar__logo">
+                    <img src="images/logo.svg" alt="" class="navbar__logo_img">
+                </a>
+                <ul class="navbar__menu">
+                    <li><a href="about.html" class="navbar__menu_link">О нас</a></li>
+                    <li><a href="services.html" class="navbar__menu_link">Услуги</a></li>
+                    <li><a href="portfolio.html" class="navbar__menu_link">Портфолио</a></li>
+                    <li><a href="prices.html" class="navbar__menu_link">Цены</a></li>
+                </ul>
+                <div class="navbar__right">
+                    <address class="navbar__address">
+                        <p class="navbar__address_city">Санкт-Петербург</p>
+                        <p class="navbar__address_street">ул. Уральская, 13</p>
+                    </address>
+                    <button class="navbar__btn orderBtn" onclick="modalToggle('#order')">Заказать проект</button>
+                    <div class="navbar__burger">
+                        <button class="navbar__burger_btn" onclick="burger(this)" data-active="#burger">
+                            <span class="txt">МЕНЮ</span>
+                            <span class="lines">
+                                <span class="line"></span>
+                                <span class="line remove"></span>
+                                <span class="line"></span>
+                            </span>
+                        </button>
+                        <div class="navbar__burger_content" id="burger">
+                            <ul class="navbar__burger_menu">
+                                <li><a href="about.html" class="navbar__burger_menu_link">О нас</a></li>
+                                <li>
+                                    <a href="services.html" class="navbar__burger_menu_link active">Услуги</a>
+                                    <ul class="navbar__burger_submenu">
+                                        <li><a href="interior.html" class="navbar__burger_submenu_link">Дизайн
+                                                интерьера</a></li>
+                                        <li><a href="finishing.html" class="navbar__burger_submenu_link">Отделочные
+                                                работы</a></li>
+                                        <li><a href="supervision.html" class="navbar__burger_submenu_link">Авторский
+                                                надзор</a></li>
+                                        <li><a href="decoration.html"
+                                                class="navbar__burger_submenu_link">Декорирование</a></li>
+                                        <li><a href="redevelopment.html"
+                                                class="navbar__burger_submenu_link">Согласование перепланировки</a></li>
+                                        <li><a href="engineering.html" class="navbar__burger_submenu_link">Архитектурное
+                                                проектирование</a></li>
+                                        <li><a href="furniture.html" class="navbar__burger_submenu_link">Авторская
+                                                мебель</a></li>
+                                    </ul>
+                                </li>
+                                <hr>
+                                <li><a href="prices.html" class="navbar__burger_menu_link">Стоимость</a></li>
+                                <li><a href="portfolio.html" class="navbar__burger_menu_link">Портфолио</a></li>
+                                <li><a href="blog.html" class="navbar__burger_menu_link">Блог</a></li>
+                                <hr>
+                                <li><a href="contact.html" class="navbar__burger_menu_link">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="indexHeader">
+            <div class="indexHeader__content">
+                <img src="images/indexHeaderLogo.svg" alt="" class="indexHeader__logo">
+                <h1 class="indexHeader__title">Студия интерьера Яны Петерсон</h1>
+            </div>
+            <div class="swiper indexHeader__swiper" id="headerSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="images/indexHeader.png" alt=""></div>
+                    <div class="swiper-slide"><img src="images/indexHeader.png" alt=""></div>
+                    <div class="swiper-slide"><img src="images/indexHeader.png" alt=""></div>
+                </div>
+
+            </div>
+            <div class="indexHeader__swiper_controls">
+                <button type="button" class="indexHeader__swiper_controls_btn swiper-button-prev" id="headerSwLBtn">
+                    <img src="images/indexHeaderSwArr.svg" alt="">
+                </button>
+                <div class="swiper-pagination"></div>
+                <button type="button" class="indexHeader__swiper_controls_btn swiper-button-next" id="headerSwRBtn">
+                    <img src="images/indexHeaderSwArr.svg" alt="">
+                </button>
+            </div>
+        </header>
+
+        <main>
+            <section class="portfolio">
+                <div class="portfolio__header">
+                    <h2 class="portfolio__header_title">Портфолио лучших работ</h2>
+                    <div class="portfolio__header_btns">
+                        <button type="button" data-active="acc1" id="portDefault"
+                            class="portfolio__header_btns_btn accBtn"
+                            onclick="acc('.portfolio', this, '.accBtn')">Квартиры</button>
+                        <button type="button" data-active="acc2" class="portfolio__header_btns_btn accBtn"
+                            onclick="acc('.portfolio', this, '.accBtn')">Коттеджи</button>
+                        <button type="button" data-active="acc3" class="portfolio__header_btns_btn accBtn"
+                            onclick="acc('.portfolio', this, '.accBtn')">Коммерческая</button>
+                    </div>
+                </div>
+                <div class="portfolio__acc">
+                    <div class="portfolio__acc_item acc" id="acc1">
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr1.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr2.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr3.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr4.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr5.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr6.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr7.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr8.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr9.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr10.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr11.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr12.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                    </div>
+                    <div class="portfolio__acc_item acc" id="acc2">
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr1.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr2.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr3.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr4.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr5.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr6.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr7.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr8.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr9.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr10.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr11.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr12.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                    </div>
+                    <div class="portfolio__acc_item acc" id="acc3">
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr1.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr2.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr3.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr4.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr5.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr6.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr7.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr8.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr9.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr10.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr11.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                        <div class="portfolio__acc_item_el">
+                            <p class="portfolio__acc_item_el_pr">ЖК Триумф Парк</p>
+                            <img src="images/pr12.png" alt="" class="portfolio__acc_item_el_pic">
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio__footer">
+                    <p class="portfolio__footer_pr">«Студия Яны Петерсон» – интерьеры по индивидуальной мерке</p>
+                    <a href="portfolio.html" class="allworksBtn">Смотреть все работы</a>
+                </div>
+            </section>
+
+            <section class="advan">
+                <div class="advan__container">
+                    <h2 class="advan__title">Наши преимущества</h2>
+                    <div class="advan__content">
+                        <div class="advan__item">
+                            <img alt="" src="images/advan1.svg" class="advan__item_pic">
+                            <div class="advan__item_desc">
+                                <h3 class="advan__item_desc_title">Полный спектр услуг</h3>
+                                <p class="advan__item_desc_pr">Осуществляем работы «под ключ» от идеи до оплощения.
+                                    Предоставляем бесплатные услуги авторского надзора и декорирования. Занимаемся
+                                    согласованием перепланировок.</p>
+                            </div>
+                        </div>
+                        <div class="advan__item">
+                            <img alt="" src="images/advan2.svg" class="advan__item_pic">
+                            <div class="advan__item_desc">
+                                <h3 class="advan__item_desc_title">Сроки</h3>
+                                <p class="advan__item_desc_pr">Выполняя абсолютно все работы, самостоятельно контролируя
+                                    заказ материалов, мы гарантируем минимальные сроки производства работ от 4 месяцев в
+                                    зависимости от сложности проекта.</p>
+                            </div>
+                        </div>
+                        <div class="advan__item">
+                            <img alt="" src="images/advan3.svg" class="advan__item_pic">
+                            <div class="advan__item_desc">
+                                <h3 class="advan__item_desc_title">Цена</h3>
+                                <p class="advan__item_desc_pr">Частный подход к каждому заказчику исходя из поставленных
+                                    задач и бюджета позволяет определить необходимый, но достаточный уровень проработки
+                                    проекта и стоимость в каждом конкретном случае.</p>
+                            </div>
+                        </div>
+                        <div class="advan__item">
+                            <img alt="" src="images/advan4.svg" class="advan__item_pic">
+                            <div class="advan__item_desc">
+                                <h3 class="advan__item_desc_title">Комплектация</h3>
+                                <p class="advan__item_desc_pr">Осуществляем поставку мебели, аксессуаров, сантехники и
+                                    светильников из Европы и Китая дешевле, чем в магазинах города. Заказ отделочных
+                                    материалов с корпоративными скидками в любых магазинах-салонах города.</p>
+                            </div>
+                        </div>
+                        <div class="advan__item">
+                            <img alt="" src="images/advan5.svg" class="advan__item_pic">
+                            <div class="advan__item_desc">
+                                <h3 class="advan__item_desc_title">Генподряд</h3>
+                                <p class="advan__item_desc_pr">Отвечаем за объект в целом. Гарантируем качество работ и
+                                    обязательность смежников. Организация всех видов работ по единому графику сократит
+                                    сроки строительства и сэкономит ваши средства.</p>
+                            </div>
+                        </div>
+                        <div class="advan__item">
+                            <img alt="" src="images/advan6.svg" class="advan__item_pic">
+                            <div class="advan__item_desc">
+                                <h3 class="advan__item_desc_title">Страхование и гарантии</h3>
+                                <p class="advan__item_desc_pr">Добровольное страхование объекта на весь период
+                                    отделочных работ. Бесплатно исправляем все выявленные недочёты в течение двух лет
+                                    после окончания ремонта.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="offer">
+                <div class="offer__content">
+                    <h2 class="offer__title">Что мы предлагаем?</h2>
+                    <div class="offer__item">
+                        <div class="offer__item_desc">
+                            <h3 class="offer__item_desc_title">Дизайн интерьера</h3>
+                            <p class="offer__item_desc_pr">Проектируем эксклюзивный дизайн интерьера с учетом ваших
+                                пожеланий и наших задач.</p>
+                        </div>
+                        <a href="interior.html" class="moreBtn">Подробнее</a>
+                        <img src="images/offer1.png" alt="" class="offer__img">
+                    </div>
+                    <div class="offer__item">
+                        <div class="offer__item_desc">
+                            <h3 class="offer__item_desc_title">Отделочные работы</h3>
+                            <p class="offer__item_desc_pr">Осуществляем все отделочные работы «Под ключ» — от идеи до
+                                воплощения.</p>
+                        </div>
+                        <a href="finishing.html" class="moreBtn">Подробнее</a>
+                        <img src="images/offer2.png" alt="" class="offer__img">
+                    </div>
+                    <div class="offer__item">
+                        <div class="offer__item_desc">
+                            <h3 class="offer__item_desc_title">Авторский надзор</h3>
+                            <p class="offer__item_desc_pr">Контролируем реализацию своих проектов от создания до
+                                воплощения в жизнь.</p>
+                        </div>
+                        <a href="supervision.html" class="moreBtn">Подробнее</a>
+                        <img src="images/offer3.png" alt="" class="offer__img">
+                    </div>
+                    <div class="offer__item">
+                        <div class="offer__item_desc">
+                            <h3 class="offer__item_desc_title">Декорирование интерьера</h3>
+                            <p class="offer__item_desc_pr">Создаем единое гармоничное пространство с органично
+                                расставленными акцентами.</p>
+                        </div>
+                        <a href="decoration.html" class="moreBtn">Подробнее</a>
+                        <img src="images/offer4.png" alt="" class="offer__img">
+                    </div>
+                    <div class="offer__item">
+                        <div class="offer__item_desc">
+                            <h3 class="offer__item_desc_title">Согласование перепланировки</h3>
+                            <p class="offer__item_desc_pr">Берем на себя все вопросы по взаимодействию с госорганами и
+                                получению разрешения.</p>
+                        </div>
+                        <a href="redevelopment.html" class="moreBtn">Подробнее</a>
+                        <img src="images/offer5.png" alt="" class="offer__img">
+                    </div>
+                    <div class="offer__item">
+                        <div class="offer__item_desc">
+                            <h3 class="offer__item_desc_title">Архитектурное проектирование</h3>
+                            <p class="offer__item_desc_pr">Спроектируем Ваш дом лично для Вас с учетом эргономики и
+                                красоты, используя дизайнерское видение пространства.</p>
+                        </div>
+                        <a href="engineering.html" class="moreBtn">Подробнее</a>
+                        <img src="images/offer6.png" alt="" class="offer__img">
+                    </div>
+                    <div class="offer__item">
+                        <div class="offer__item_desc">
+                            <h3 class="offer__item_desc_title">Авторская мебель</h3>
+                            <p class="offer__item_desc_pr">Вся мебель индивидуального изготовления в наших проектах
+                                реализуется лично нами. И мы гордимся нашим продуктом.</p>
+                        </div>
+                        <a href="designer.html" class="moreBtn">Подробнее</a>
+                        <img src="images/offer7.png" alt="" class="offer__img">
+                    </div>
+                </div>
+                <img src="images/indexOffer.png" alt="" class="offer__pic">
+            </section>
+
+            <section class="approach">
+                <div class="approach__pics">
+                    <img src="images/approach1.png" alt="" class="approach__pics_img">
+                    <img src="images/approach2.png" alt="" class="approach__pics_img">
+                    <img src="images/approach3.png" alt="" class="approach__pics_img">
+                    <img src="images/approach4.png" alt="" class="approach__pics_img">
+                    <img src="images/approach5.png" alt="" class="approach__pics_img mob">
+                    <img src="images/approach6.png" alt="" class="approach__pics_img mob">
+                    <img src="images/approach7.png" alt="" class="approach__pics_img mob">
+                    <img src="images/approach8.png" alt="" class="approach__pics_img mob">
+                    <img src="images/approach9.png" alt="" class="approach__pics_img mob">
+                </div>
+                <div class="approach__content">
+                    <h2 class="approach__title">Как мы работаем</h2>
+                    <div>
+                        <div class="approach__item">
+                            <span class="num">1</span>
+                            <span class="line"></span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Получаем вашу заявку</h3>
+                                <p class="approach__item_desc_pr">Созвонитесь с нами или отправьте сообщение на сайте.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="approach__item">
+                            <span class="num">2</span>
+                            <span class="line"></span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Знакомимся</h3>
+                                <p class="approach__item_desc_pr">На первой встрече мы обсудим все подробности вашей
+                                    задачи. Посмотрим портфолио нашей компании, обсудим различные наши проекты и
+                                    заключим договор.</p>
+                            </div>
+                        </div>
+                        <div class="approach__item">
+                            <span class="num">3</span>
+                            <span class="line"></span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Выезжаем на объект</h3>
+                                <p class="approach__item_desc_pr">Встречаемся на объекте, чтобы провести необходимые
+                                    замеры, фотофиксацию и заполнить подробное техзадание. Директор по строительству
+                                    оценивает состояние объекта и объем работ.</p>
+                            </div>
+                        </div>
+                        <div class="approach__item">
+                            <span class="num">4</span>
+                            <span class="line"></span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Обсуждаем и согласовываем общий бюджет проекта
+                                </h3>
+                                <p class="approach__item_desc_pr">Расходы на "наполнение" интерьера, отделочные
+                                    материалы, мебель и оборудование. Учитываем также примерную стоимость ремонтных
+                                    работ по объекту.</p>
+                            </div>
+                        </div>
+                        <div class="approach__item">
+                            <span class="num">5</span>
+                            <span class="line"></span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Определяем планировочное решение</h3>
+                                <p class="approach__item_desc_pr">На этом этапе мы предлагаем несколько вариантов
+                                    зонирования, расстановки мебели и оборудования. При необходимости выполним
+                                    перепланировку и приступим к ее согласованию.</p>
+                            </div>
+                        </div>
+                        <div class="approach__item">
+                            <span class="num">6</span>
+                            <span class="line"></span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Разрабатываем стилевую концепцию</h3>
+                                <p class="approach__item_desc_pr">На основании ваших вкусов, с учетом модных тенденций
+                                    и направлений, определяется каким будет стиль будущего интерьера. Мы создаем 3D
+                                    модели каждого помещени, а вы получаете представление о том, как будет выглядеть ваш
+                                    дом после ремонта.</p>
+                            </div>
+                        </div>
+                        <div class="approach__item">
+                            <span class="num">7</span>
+                            <span class="line"></span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Готовим рабочую документацию</h3>
+                                <p class="approach__item_desc_pr">На следующем этапе мы подготавливаем все необходимые
+                                    рабочие чертежи. Вы получаете итоговую строительную смету, на основании которой
+                                    будут вестись строительные работы. </p>
+                            </div>
+                        </div>
+                        <div class="approach__item">
+                            <span class="num">8</span>
+                            <div class="approach__item_desc">
+                                <h3 class="approach__item_desc_title">Комплектация объекта</h3>
+                                <p class="approach__item_desc_pr">На завершающем этапе комплектации мы составляем
+                                    спецификации мебели, светильников и предметов интерьера, и всего того, что
+                                    использовано в интерьере в соответствии с согласованным ранее бюджетом объекта.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="orderBtn" onclick="modalToggle('#order')">Заказать дизайн</button>
+                </div>
+            </section>
+
+            <section class="founder">
+                <div class="founder__content">
+                    <h2 class="founder__name">Яна Петерсон</h2>
+                    <p class="founder__about">Основатель и руководитель студии интерьера «Custom Made»</p>
+                    <p class="founder__comment">«Считаю, что неразрешимых ситуаций не бывает. Кто хочет двигаться вперед
+                        - ищет пути по решению проблем, кто не хочет - причины неудач»</p>
+                    <button type="button" class="questionBtn" onclick="modalToggle('#question')">Задать вопрос</button>
+                </div>
+                <div class="founder__pic">
+                    <img src="images/founder.png" alt="" class="founder__pic_img">
+                </div>
+            </section>
+
+            <section class="review">
+                <h2 class="review__title">Отзывы</h2>
+                <div class=" review__container">
+                    <div class="swiper" id="review">
+                        <div class="swiper-wrapper review__content">
+                            <div class="swiper-slide review__item">
+                                <p class="review__item_pr">Какое счастье - сопровождение дизайнера, когда тебе не нужно
+                                    носиться в поисках плитки, мебели, материалов и так далее. Это очень экономит время!
+                                </p>
+                                <i class="review__item_username">Александра Р.</i>
+                            </div>
+                            <div class="swiper-slide review__item">
+                                <p class="review__item_pr">Большое спасибо за чудесную работу! Дизайн получился очень
+                                    крутой. С вами легко сотрудничать. Вы улавливаете все наши мысли и желания. </p>
+                                <i class="review__item_username">@sokolova_v</i>
+                            </div>
+                            <div class="swiper-slide review__item">
+                                <p class="review__item_pr">Яна Петерсон - отменный специалист, обладающий очень тонким
+                                    вкусом и чувством стиля Все четко, продуманно, вовремя. </p>
+                                <i class="review__item_username">Мария Л.</i>
+                            </div>
+                            <div class="swiper-slide review__item">
+                                <p class="review__item_pr">Благодарю Яну за понимание идеи, за красоту и чуткость.
+                                    Своевременное исполнение и соблюдение сроков. За качественный и проработанный
+                                    дизайн.
+                                </p>
+                                <i class="review__item_username">@valeriya</i>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    <a href="reviews.html" class="reviewBtn">Смотреть все отзывы</a>
+                </div>
+            </section>
+
+            <section class="projects">
+                <h2 class="projects__title">Наши проекты в Instagram</h2>
+                <div class="projects__content">
+                    <div class="projects__item">
+                        <img src="images/project1.png" alt="" class="projects__item_pic">
+                        <div class="projects__item_data">
+                            <div class="projects__item_data_likes">
+                                <img src="images/like.svg" alt="" class="projects__item_data_likes_icon">
+                                <span class="projects__item_data_likes_sum">128</span>
+                            </div>
+                            <div class="projects__item_data_comm">
+                                <img src="images/comment.svg" alt="" class="projects__item_data_comm_icon">
+                                <span class="projects__item_data_comm_sum">10</span>
+                            </div>
+                            <button type="button" class="projects__item_data_share">
+                                <img src="images/share.svg" alt="" class="projects__item_data_share_icon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="projects__item">
+                        <img src="images/project2.png" alt="" class="projects__item_pic">
+                        <div class="projects__item_data">
+                            <div class="projects__item_data_likes">
+                                <img src="images/like.svg" alt="" class="projects__item_data_likes_icon">
+                                <span class="projects__item_data_likes_sum">128</span>
+                            </div>
+                            <div class="projects__item_data_comm">
+                                <img src="images/comment.svg" alt="" class="projects__item_data_comm_icon">
+                                <span class="projects__item_data_comm_sum">10</span>
+                            </div>
+                            <button type="button" class="projects__item_data_share">
+                                <img src="images/share.svg" alt="" class="projects__item_data_share_icon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="projects__item">
+                        <img src="images/project3.png" alt="" class="projects__item_pic">
+                        <div class="projects__item_data">
+                            <div class="projects__item_data_likes">
+                                <img src="images/like.svg" alt="" class="projects__item_data_likes_icon">
+                                <span class="projects__item_data_likes_sum">128</span>
+                            </div>
+                            <div class="projects__item_data_comm">
+                                <img src="images/comment.svg" alt="" class="projects__item_data_comm_icon">
+                                <span class="projects__item_data_comm_sum">10</span>
+                            </div>
+                            <button type="button" class="projects__item_data_share">
+                                <img src="images/share.svg" alt="" class="projects__item_data_share_icon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="projects__item">
+                        <img src="images/project4.png" alt="" class="projects__item_pic">
+                        <div class="projects__item_data">
+                            <div class="projects__item_data_likes">
+                                <img src="images/like.svg" alt="" class="projects__item_data_likes_icon">
+                                <span class="projects__item_data_likes_sum">128</span>
+                            </div>
+                            <div class="projects__item_data_comm">
+                                <img src="images/comment.svg" alt="" class="projects__item_data_comm_icon">
+                                <span class="projects__item_data_comm_sum">10</span>
+                            </div>
+                            <button type="button" class="projects__item_data_share">
+                                <img src="images/share.svg" alt="" class="projects__item_data_share_icon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="projects__item">
+                        <img src="images/project5.png" alt="" class="projects__item_pic">
+                        <div class="projects__item_data">
+                            <div class="projects__item_data_likes">
+                                <img src="images/like.svg" alt="" class="projects__item_data_likes_icon">
+                                <span class="projects__item_data_likes_sum">128</span>
+                            </div>
+                            <div class="projects__item_data_comm">
+                                <img src="images/comment.svg" alt="" class="projects__item_data_comm_icon">
+                                <span class="projects__item_data_comm_sum">10</span>
+                            </div>
+                            <button type="button" class="projects__item_data_share">
+                                <img src="images/share.svg" alt="" class="projects__item_data_share_icon">
+                            </button>
+                        </div>
+                    </div>
+                    <div class="projects__item">
+                        <img src="images/project6.png" alt="" class="projects__item_pic">
+                        <div class="projects__item_data">
+                            <div class="projects__item_data_likes">
+                                <img src="images/like.svg" alt="" class="projects__item_data_likes_icon">
+                                <span class="projects__item_data_likes_sum">128</span>
+                            </div>
+                            <div class="projects__item_data_comm">
+                                <img src="images/comment.svg" alt="" class="projects__item_data_comm_icon">
+                                <span class="projects__item_data_comm_sum">10</span>
+                            </div>
+                            <button type="button" class="projects__item_data_share">
+                                <img src="images/share.svg" alt="" class="projects__item_data_share_icon">
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="projects__footer">
+                    <a href="" class="reviewBtn">Смотреть все проекты</a>
+                    <a href="" class="projects__footer_inst">
+                        <img src="images/indexInst.png" alt="" class="projects__footer_inst_icon">
+                        <span class="projects__footer_inst_pr">peterson.designer</span>
+                    </a>
+                    <a href="" class="moreBtn">Подписаться</a>
+                </div>
+            </section>
+
+            <form action="">
+                <section class="cons">
+                    <div class="consultationForm" id="consultationForm">
+                        <h2 class="consultationForm__title">Нужна консультация?</h2>
+                        <input type="text" class="consultationForm__inp" placeholder="Как к вам обращаться">
+                        <input type="phone" class="consultationForm__inp" placeholder="Номер телефона">
+                        <button type="button" class="reviewBtn"
+                            onclick="cons('#consultationSuccess', '#consultationForm')">Заказать звонок</button>
+                    </div>
+                    <div class="consultationSuccess" id="consultationSuccess">
+                        <h2 class="consultationSuccess__title">Вы заказали обратный звонок!</h2>
+                        <p class="consultationSuccess__pr">Спасибо за оставленную заявку. <br><br> Мы свяжемся с Вами в
+                            ближайшее время, чтобы проконсультировать по интересующим вопросам. </p>
+                        <button type="button" class="reviewBtn"
+                            onclick="cons('#consultationSuccess', '#consultationForm')">Закрыть окно</button>
+                    </div>
+                </section>
+            </form>
+        </main>
+
+        <footer class="footer">
+            <div class="footer__content">
+                <div class="footer__cop">
+                    <a href="index.html" class="footer__cop_logo">
+                        <img src="images/footerLogo.svg" alt="" class="footer__cop_logo_pic">
+                    </a>
+                    <p class="footer__cop_pr">
+                        <img src="images/copyright.svg" alt="" class="footer__cop_pr_icon">
+                        2010-2022 Студия интерьера
+                    </p>
+                    <p class="footer__cop_pr">Custom Made, все права защищены</p>
+                </div>
+                <div class="footer__nav">
+                    <ul class="footer__nav_menu">
+                        <li><a href="about.html" class="footer__nav_menu_link">О нас</a></li>
+                        <li><a href="portfolio.html" class="footer__nav_menu_link">Портфолио</a></li>
+                        <li><a href="prices.html" class="footer__nav_menu_link">Цены</a></li>
+                        <li><a href="services.html" class="footer__nav_menu_link">Услуги</a></li>
+                        <li><a href="blog.html" class="footer__nav_menu_link">Блог</a></li>
+                    </ul>
+                    <ul class="footer__nav_menu">
+                        <li><a href="interior.html" class="footer__nav_menu_link">Дизайн интерьера</a></li>
+                        <li><a href="finishing.html" class="footer__nav_menu_link">Отделочные работы</a></li>
+                        <li><a href="cottages.html" class="footer__nav_menu_link">Коттеджи</a></li>
+                        <li><a href="furniture.html" class="footer__nav_menu_link">Мебель</a></li>
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <ul class="footer__social_menu">
+                        <li>
+                            <a href="mailto:cmade.spb@mail.ru" class="footer__social_menu_link">
+                                <img src="images/email.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">cmade.spb@mail.ru</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/instagram.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/vk-logo.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson_designer</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="footer__social_menu">
+                        <li>
+                            <a href="www.t.me/peterson.designer" class="footer__social_menu_link">
+                                <img src="images/telegram.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">@peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/Vector.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/path64.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__address">
+                    <div class="footer__address_item">
+                        <img src="images/location.svg" alt="" class="footer__address_item_icon">
+                        <div class="footer__address_item_content">
+                            <p class="footer__address_item_pr">Санкт-Петербург</p>
+                            <p class="footer__address_item_pr">ул. Уральская, 13</p>
+                        </div>
+                    </div>
+                    <div class="footer__address_item">
+                        <img src="images/phone.svg" alt="" class="footer__address_item_icon">
+                        <div class="footer__address_item_content">
+                            <a href="tel:+79052047774" class="footer__address_item_link">+7(905) 204-77-74</a>
+                            <a href="tel:+78127150275" class="footer__address_item_link">+7(812) 715-02-75</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="module" src="js/index.js"></script>
+</body>
+
+</html>

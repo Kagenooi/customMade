@@ -1,0 +1,117 @@
+.servicesForm {
+    width: 100%;
+    display: grid;
+    align-items: center;
+    background: #F1ECE9;
+    grid-template-columns: minmax(0px, 625px) minmax(0px, 815px);
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+    }
+
+    &__content {
+        padding: 100px 60px;
+
+        @media (max-width: 768px) {
+            padding: 60px 85px;
+        }
+
+        @media (max-width: 480px) {
+            padding: 60px 15px 110px;         
+        }
+
+        &.active {
+            display: none;
+        }
+    }
+
+    &__success {
+        display: none;
+        background: #fff;
+        padding: 60px;
+        width: 100%;
+        max-width: 652px;
+        margin: 0 auto;
+
+        &.active {
+            display: block;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        grid-gap: 30px;
+        margin-bottom: 30px;
+        font-size: 30px;
+        font-weight: 600;
+
+        @media (max-width: 768px) {
+            font-size: 25px;  
+            margin-bottom: 45px;         
+        }
+        &_arr {
+            transform: rotateY(180deg);
+
+            @media (max-width: 480px) {
+                display: none;       
+            }
+        }
+    }
+
+    &__pr {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 40px;
+
+        @media (max-width: 480px) {
+            font-size: 16px;
+            margin-bottom: 45px;           
+        }
+    }
+
+    &__pic {
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+    }
+
+    &__inp,
+    &__textarea {
+        display: block;
+        border-bottom: 1px solid #000;
+        padding: 10px 0;
+        color: #000;
+        font-size: 15px;
+        font-weight: 400;
+        width: 100%;
+        max-width: 360px;
+        margin-bottom: 20px;
+
+        &::placeholder {
+            color: #000;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        @media (max-width: 480px) {
+            margin-bottom: 40px;           
+        }
+    }
+
+    &__textarea {
+        margin-bottom: 50px;
+        margin-top: 110px;
+    }
+
+    .reviewBtn {
+        min-width: 270px;
+        max-width: 270px;
+
+        
+        @media (max-width: 768px) {
+            padding: 18px;
+        }
+    }
+}

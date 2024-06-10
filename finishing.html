@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="scss/finishing/finishing.css">
+</head>
+
+<body>
+    <div id="adaptive">
+
+        <!-- modals start -->
+        <form action="">
+            <div class="modal" id="order">
+                <div class="modal__wrapper">
+                    <button type="button" class="modal__closeBtn" onclick="modalRemove()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <line x1="26.6954" y1="9.01762" x2="9.01768" y2="26.6953" stroke="#171717" />
+                            <line x1="26.583" y1="26.4512" x2="8.9053" y2="8.77354" stroke="#171717" />
+                        </svg>
+                    </button>
+                    <h2 class="modal__title">Заказать проект</h2>
+                    <p class="modal__pr">Разрешите нам познакомиться с вами и узнать о вашем проекте. Мы подготовим для
+                        вас индивидуальное предложение.</p>
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Как к вам обращаться">
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Номер телефона">
+                    <textarea name="" id="" cols="30" rows="10" class="modal__textarea"
+                        placeholder="Ваше сообщение"></textarea>
+                    <button type="button" class="reviewBtn" onclick="modalToggle('#success')">Отправить
+                        сообщение</button>
+                </div>
+            </div>
+
+            <div class="modal" id="price">
+                <div class="modal__wrapper">
+                    <button type="button" class="modal__closeBtn" onclick="modalRemove()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                            <line x1="26.6954" y1="9.01762" x2="9.01768" y2="26.6953" stroke="#171717" />
+                            <line x1="26.583" y1="26.4512" x2="8.9053" y2="8.77354" stroke="#171717" />
+                        </svg>
+                    </button>
+                    <h2 class="modal__title">Узнайте стоимость работы</h2>
+                    <p class="modal__pr">Напишите, какие отделочные работы необходимо произвести. Мы подготовим для вас индивидуальное предложение.</p>
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Как к вам обращаться">
+                    <input type="text" name="" id="" class="modal__inp" placeholder="Номер телефона">
+                    <textarea name="" id="" cols="30" rows="10" class="modal__textarea"
+                        placeholder="Ваше сообщение"></textarea>
+                    <button type="button" class="reviewBtn" onclick="modalToggle('#success')">Отправить
+                        сообщение</button>
+                </div>
+            </div>
+
+            <div class="modal" id="success">
+                <div class="modal__wrapper">
+                    <h2 class="modal__title">Ваше сообщение отправлено!</h2>
+                    <p class="modal__pr">Спасибо за ваше обращение. <br><br> Мы свяжемся с Вами в ближайшее время, чтобы
+                        проконсультировать по Вашему проекту. </p>
+                    <button type="button" class="reviewBtn" onclick="modalRemove()">Закрыть окно</button>
+                </div>
+            </div>
+        </form>
+        <!-- modals end -->
+
+        <nav class="navbar">
+            <div class="navbar__wrapper">
+                <a href="" class="navbar__logo">
+                    <img src="images/logo.svg" alt="" class="navbar__logo_img">
+                </a>
+                <ul class="navbar__menu">
+                    <li><a href="about.html" class="navbar__menu_link">О нас</a></li>
+                    <li><a href="services.html" class="navbar__menu_link">Услуги</a></li>
+                    <li><a href="portfolio.html" class="navbar__menu_link">Портфолио</a></li>
+                    <li><a href="prices.html" class="navbar__menu_link">Цены</a></li>
+                </ul>
+                <div class="navbar__right">
+                    <address class="navbar__address">
+                        <p class="navbar__address_city">Санкт-Петербург</p>
+                        <p class="navbar__address_street">ул. Уральская, 13</p>
+                    </address>
+                    <button class="navbar__btn orderBtn" onclick="modalToggle('#order')">Заказать проект</button>
+                    <div class="navbar__burger">
+                        <button class="navbar__burger_btn" onclick="burger(this)" data-active="#burger">
+                            <span class="txt">МЕНЮ</span>
+                            <span class="lines">
+                                <span class="line"></span>
+                                <span class="line remove"></span>
+                                <span class="line"></span>
+                            </span>
+                        </button>
+                        <div class="navbar__burger_content" id="burger">
+                            <ul class="navbar__burger_menu">
+                                <li><a href="about.html" class="navbar__burger_menu_link">О нас</a></li>
+                                <li>
+                                    <a href="services.html" class="navbar__burger_menu_link active">Услуги</a>
+                                    <ul class="navbar__burger_submenu">
+                                        <li><a href="interior.html" class="navbar__burger_submenu_link">Дизайн
+                                                интерьера</a></li>
+                                        <li><a href="finishing.html" class="navbar__burger_submenu_link">Отделочные
+                                                работы</a></li>
+                                        <li><a href="supervision.html" class="navbar__burger_submenu_link">Авторский
+                                                надзор</a></li>
+                                        <li><a href="decoration.html"
+                                                class="navbar__burger_submenu_link">Декорирование</a></li>
+                                        <li><a href="redevelopment.html"
+                                                class="navbar__burger_submenu_link">Согласование перепланировки</a></li>
+                                        <li><a href="engineering.html" class="navbar__burger_submenu_link">Архитектурное
+                                                проектирование</a></li>
+                                        <li><a href="furniture.html" class="navbar__burger_submenu_link">Авторская
+                                                мебель</a></li>
+                                    </ul>
+                                </li>
+                                <hr>
+                                <li><a href="prices.html" class="navbar__burger_menu_link">Стоимость</a></li>
+                                <li><a href="portfolio.html" class="navbar__burger_menu_link">Портфолио</a></li>
+                                <li><a href="blog.html" class="navbar__burger_menu_link">Блог</a></li>
+                                <hr>
+                                <li><a href="contact.html" class="navbar__burger_menu_link">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="servicesHeader">
+            <div class="servicesHeader__desc">
+                <h1 class="servicesHeader__title">Отделочные работы</h1>
+                <p class="servicesHeader__pr">Мы предлагаем широкий спектр строительных, ремонтных и отделочных работ.
+                </p>
+                <p class="servicesHeader__pr">Наши цены на отделочные работы демократичны и доступны. Вы можете
+                    убедиться в этом, просмотрев представленный ниже прайс-лист.</p>
+                <button type="button" class="reviewBtn" onclick="modalToggle('#price')">Узнать стоимость</button>
+            </div>
+            <div class="servicesHeader__pic">
+                <img src="images/finishing.png" alt="" class="servicesHeader__pic_img desktop">
+                <img src="images/finishingTablet.png" alt="" class="servicesHeader__pic_img tablet">
+            </div>
+        </header>
+
+        <section class="priceList">
+            <div class="priceList__pic">
+                <img src="images/priceLyst.png" alt="" class="priceList__pic_img desktop">
+                <img src="images/priceLystTablet.png" alt="" class="priceList__pic_img tablet">
+            </div>
+            <div class="priceList__content">
+                <h2 class="priceList__title">Прайс-лист на отделочные работы</h2>
+                <div class="priceList__slider">
+                    <div class="swiper" id="priceList">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="priceList__header">
+                                    <h3 class="priceList__header_title">Подотовительные и демонтажные работы</h3>
+                                    <h4 class="priceList__header_secondTilte">Ед.изм.</h4>
+                                    <h4 class="priceList__header_thTitle">₽</h4>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж перегородок из пазогребня</p>
+                                    <p class="priceList__item_pr">м2</p>
+                                    <p class="priceList__item_pr">250</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж кирпичных перегородок</p>
+                                    <p class="priceList__item_pr">м2</p>
+                                    <p class="priceList__item_pr">300</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Создание временной схемы электропитания</p>
+                                    <p class="priceList__item_pr">сист.</p>
+                                    <p class="priceList__item_pr">2700</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж радиаторов отопления</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">750</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж существующей электропроводки и временного
+                                        электрощита</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">2000</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж полотенцесушителя</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">500</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Устройство временного водоснабжения и канализации</p>
+                                    <p class="priceList__item_pr">сист.</p>
+                                    <p class="priceList__item_pr">3000</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="priceList__header">
+                                    <h3 class="priceList__header_title">Подотовительные и демонтажные работы</h3>
+                                    <h4 class="priceList__header_secondTilte">Ед.изм.</h4>
+                                    <h4 class="priceList__header_thTitle">₽</h4>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж перегородок из пазогребня</p>
+                                    <p class="priceList__item_pr">м2</p>
+                                    <p class="priceList__item_pr">250</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж кирпичных перегородок</p>
+                                    <p class="priceList__item_pr">м2</p>
+                                    <p class="priceList__item_pr">300</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Создание временной схемы электропитания</p>
+                                    <p class="priceList__item_pr">сист.</p>
+                                    <p class="priceList__item_pr">2700</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж радиаторов отопления</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">750</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж существующей электропроводки и временного
+                                        электрощита</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">2000</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж полотенцесушителя</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">500</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Устройство временного водоснабжения и канализации</p>
+                                    <p class="priceList__item_pr">сист.</p>
+                                    <p class="priceList__item_pr">3000</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="priceList__header">
+                                    <h3 class="priceList__header_title">Подотовительные и демонтажные работы</h3>
+                                    <h4 class="priceList__header_secondTilte">Ед.изм.</h4>
+                                    <h4 class="priceList__header_thTitle">₽</h4>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж перегородок из пазогребня</p>
+                                    <p class="priceList__item_pr">м2</p>
+                                    <p class="priceList__item_pr">250</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж кирпичных перегородок</p>
+                                    <p class="priceList__item_pr">м2</p>
+                                    <p class="priceList__item_pr">300</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Создание временной схемы электропитания</p>
+                                    <p class="priceList__item_pr">сист.</p>
+                                    <p class="priceList__item_pr">2700</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж радиаторов отопления</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">750</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж существующей электропроводки и временного
+                                        электрощита</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">2000</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Демонтаж полотенцесушителя</p>
+                                    <p class="priceList__item_pr">шт.</p>
+                                    <p class="priceList__item_pr">500</p>
+                                </div>
+                                <div class="priceList__item">
+                                    <p class="priceList__item_pr">Устройство временного водоснабжения и канализации</p>
+                                    <p class="priceList__item_pr">сист.</p>
+                                    <p class="priceList__item_pr">3000</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="whiteControls priceList__controls">
+                        <button type="button" class="whiteControls__btn swiper-button-prev" id="priceListSwLBtn">
+                            <img src="images/whiteSwArr.svg" alt="">
+                        </button>
+                        <div class="priceList-pagination swiper-pagination"></div>
+                        <button type="button" class="whiteControls__btn swiper-button-next" id="priceListSwRBtn">
+                            <img src="images/whiteSwArr.svg" alt="">
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="advan">
+            <div class="advan__container">
+                <h2 class="advan__title">Преимущества ремонта с нами</h2>
+                <div class="advan__content">
+                    <div class="advan__item">
+                        <img alt="" src="images/advan5.svg" class="advan__item_pic">
+                        <div class="advan__item_desc">
+                            <h3 class="advan__item_desc_title">Опыт работы более 10 лет</h3>
+                            <p class="advan__item_desc_pr">Осуществляем задачи любой сложности - высокий профессионализм
+                                специалистов выполнить любые идеи дизайнеров с премиальным качеством работ.</p>
+                        </div>
+                    </div>
+                    <div class="advan__item">
+                        <img alt="" src="images/advan6.svg" class="advan__item_pic">
+                        <div class="advan__item_desc">
+                            <h3 class="advan__item_desc_title">Страхование и гарантии</h3>
+                            <p class="advan__item_desc_pr">Добровольное страхование объекта на весь период отделочных
+                                работ. Бесплатно исправляем все выявленные недочёты в течение двух лет после окончания
+                                ремонта.</p>
+                        </div>
+                    </div>
+                    <div class="advan__item">
+                        <img alt="" src="images/advan1.svg" class="advan__item_pic">
+                        <div class="advan__item_desc">
+                            <h3 class="advan__item_desc_title">Комплексный подход</h3>
+                            <p class="advan__item_desc_pr">Отвечаем за объект в целом. Гарантируем качество работ и
+                                обязательность смежников. Организация всех подрядчиков по единому графику сокращает
+                                сроки реализации объекта.</p>
+                        </div>
+                    </div>
+                    <div class="advan__item">
+                        <img alt="" src="images/advan7.svg" class="advan__item_pic">
+                        <div class="advan__item_desc">
+                            <h3 class="advan__item_desc_title">Принцип одного окна</h3>
+                            <p class="advan__item_desc_pr">Работа в команде дизайнера и производителя работ позволяет
+                                оперативно решать все вопросы без Вашего прямого участия и вовлечения в проект, экономит
+                                Ваше время и нервы.</p>
+                        </div>
+                    </div>
+                    <div class="advan__item">
+                        <img alt="" src="images/advan2.svg" class="advan__item_pic">
+                        <div class="advan__item_desc">
+                            <h3 class="advan__item_desc_title">Гарантированные сроки</h3>
+                            <p class="advan__item_desc_pr">Выполняя абсолютно все работы, самостоятельно контролируя
+                                поставки материалов, гарантируем минимальные сроки производства работ.</p>
+                        </div>
+                    </div>
+                    <div class="advan__item">
+                        <img alt="" src="images/advan3.svg" class="advan__item_pic">
+                        <div class="advan__item_desc">
+                            <h3 class="advan__item_desc_title">Удобная оплата</h3>
+                            <p class="advan__item_desc_pr">Равномерное распределение оплаты работ на весь период
+                                строительства. Прозрачнось отчетности с ежемесячными фотоотчетами и актами выполенных
+                                работ.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="garant">
+            <div class="garant__content">
+                <h2 class="garant__title">Страхование и гарантия</h2>
+                <div class="garant__item">
+                    <h3 class="garant__item_title">Высочайший уровень выполения</h3>
+                    <p class="garant__item_pr">Мы гарантируем выполнение всех типов работ на высочайшем уровне с
+                        соблюдением всех эстетических и технических требований.</p>
+                    <p class="garant__item_pr">Все работы проводятся в строгом соответствии с законодательством РФ в
+                        сфере строительства, ГОСТ, СНиП другими нормативными и руководящими документами. </p>
+                    <p class="garant__item_pr">Качество выполняемых нами работ подтверждают отзывы наших многочисленных
+                        заказчиков.</p>
+                </div>
+                <div class="garant__item">
+                    <h3 class="garant__item_title">Страхование на время ремонта</h3>
+                    <p class="garant__item_pr">Страхование квартиры на время ремонта и на время действия гарантийных
+                        обязательств поможет избежать имущественных споров между Вами и третьими лицами. </p>
+                </div>
+                <div class="garant__item">
+                    <h3 class="garant__item_title">Гарантийный срок - 2 года</h3>
+                    <p class="garant__item_pr">Нашей компанией установлен гарантийный срок 24 месяца
+                        (2 года) со дня сдачи объекта заказчику. Гарантия распространяется на все работы,
+                        предоставляемые нашей фирмой.</p>
+                </div>
+                <div class="garant__item">
+                    <h3 class="garant__item_title">Гарантийное обслуживание оборудования</h3>
+                    <p class="garant__item_pr">В случае поставки нами оборудования на которое распространяется заводская
+                        гарантия, гарантийное обслуживание и ремонт производится фирмой производителем.</p>
+                </div>
+                <div class="garant__item">
+                    <h3 class="garant__item_title">Мы на связи</h3>
+                    <p class="garant__item_pr">Мы оперативно реагируем на гарантийные обращения
+                        и незамедлительно устраняем выявленные недостатки
+                        и гордимся тем, что это происходит довольно редко.</p>
+                </div>
+            </div>
+            <div class="garant__pic">
+                <img src="images/garant.png" alt="" class="garant__pic_img">
+            </div>
+        </section>
+
+        <section class="implementedMob">
+            <h2 class="implementedMob__title">Реализованные проекты</h2>
+            <div class="implementedMob__content">
+                <div class="implementedMob__item">
+                    <img src="images/implementedMob1.png" alt="" class="implementedMob__item_pic">
+                </div>
+                <div class="implementedMob__item">
+                    <img src="images/implementedMob2.png" alt="" class="implementedMob__item_pic">
+                </div>
+                <div class="implementedMob__item">
+                    <img src="images/implementedMob3.png" alt="" class="implementedMob__item_pic">
+                </div>
+                <div class="implementedMob__item">
+                    <img src="images/implementedMob4.png" alt="" class="implementedMob__item_pic">
+                </div>
+            </div>
+            <button type="button" class="orderBtn">Загрузить еще</button>
+        </section>
+
+        <section class="implemented">
+            <h2 class="implemented__title">Реализованные проекты</h2>
+            <div class="implemented__slider">
+                <div class="swiper" id="implemented">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="implemented__item">
+                                <div class="implemented__item_el twoel">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented1.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented2.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                                <div class="implemented__item_el onel">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented3.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                                <div class="implemented__item_el threl">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented4.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented5.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic cols-2">
+                                        <img src="images/implemented6.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="implemented__item">
+                                <div class="implemented__item_el twoel">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented1.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented2.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                                <div class="implemented__item_el onel">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented3.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                                <div class="implemented__item_el threl">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented4.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented5.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic cols-2">
+                                        <img src="images/implemented6.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="implemented__item">
+                                <div class="implemented__item_el twoel">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented1.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented2.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                                <div class="implemented__item_el onel">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented3.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                                <div class="implemented__item_el threl">
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented4.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic">
+                                        <img src="images/implemented5.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                    <div class="implemented__item_el_pic cols-2">
+                                        <img src="images/implemented6.png" alt="" class="implemented__item_el_pic_img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteControls implemented__controls">
+                    <button type="button" class="whiteControls__btn swiper-button-prev" id="implementedSwLBtn">
+                        <img src="images/whiteSwArr.svg" alt="">
+                    </button>
+                    <div class="implemented-pagination swiper-pagination"></div>
+                    <button type="button" class="whiteControls__btn swiper-button-next" id="implementedSwRBtn">
+                        <img src="images/whiteSwArr.svg" alt="">
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="contractSample">
+            <div class="contractSample__desc">
+                <h2 class="contractSample__title">
+                    Образец договора
+                    <img src="images/indexHeaderSwArr.svg" alt="" class="contractSample__title_icon desktop">
+                    <img src="images/whiteSwArr.svg" alt="" class="contractSample__title_icon mob">
+                </h2>
+                <p class="contractSample__pr">Ознакомтесь с образцом договора на осуществление ремонтных и отделочных
+                    работ в студии Custom Made</p>
+            </div>
+            <button type="button" class="reviewBtn">Скачать договор</button>
+        </section>
+
+        <form action="">
+            <section class="cons">
+                <div class="consultationForm" id="consultationForm">
+                    <h2 class="consultationForm__title">Интересуют другие виды работ?</h2>
+                    <input type="text" class="consultationForm__inp" placeholder="Как к вам обращаться">
+                    <input type="phone" class="consultationForm__inp" placeholder="Номер телефона">
+                    <button type="button" class="reviewBtn"
+                        onclick="cons('#consultationSuccess', '#consultationForm')">Заказать звонок</button>
+                </div>
+                <div class="consultationSuccess" id="consultationSuccess">
+                    <h2 class="consultationSuccess__title">Вы заказали обратный звонок!</h2>
+                    <p class="consultationSuccess__pr">Спасибо за оставленную заявку. <br><br> Мы свяжемся с Вами в
+                        ближайшее время, чтобы проконсультировать по интересующим вопросам. </p>
+                    <button type="button" class="reviewBtn"
+                        onclick="cons('#consultationSuccess', '#consultationForm')">Закрыть окно</button>
+                </div>
+            </section>
+        </form>
+
+        <footer class="footer">
+            <div class="footer__content">
+                <div class="footer__cop">
+                    <a href="index.html" class="footer__cop_logo">
+                        <img src="images/footerLogo.svg" alt="" class="footer__cop_logo_pic">
+                    </a>
+                    <p class="footer__cop_pr">
+                        <img src="images/copyright.svg" alt="" class="footer__cop_pr_icon">
+                        2010-2022 Студия интерьера
+                    </p>
+                    <p class="footer__cop_pr">Custom Made, все права защищены</p>
+                </div>
+                <div class="footer__nav">
+                    <ul class="footer__nav_menu">
+                        <li><a href="about.html" class="footer__nav_menu_link">О нас</a></li>
+                        <li><a href="portfolio.html" class="footer__nav_menu_link">Портфолио</a></li>
+                        <li><a href="prices.html" class="footer__nav_menu_link">Цены</a></li>
+                        <li><a href="services.html" class="footer__nav_menu_link">Услуги</a></li>
+                        <li><a href="blog.html" class="footer__nav_menu_link">Блог</a></li>
+                    </ul>
+                    <ul class="footer__nav_menu">
+                        <li><a href="interior.html" class="footer__nav_menu_link">Дизайн интерьера</a></li>
+                        <li><a href="finishing.html" class="footer__nav_menu_link">Отделочные работы</a></li>
+                        <li><a href="cottages.html" class="footer__nav_menu_link">Коттеджи</a></li>
+                        <li><a href="furniture.html" class="footer__nav_menu_link">Мебель</a></li>
+                    </ul>
+                </div>
+                <div class="footer__social">
+                    <ul class="footer__social_menu">
+                        <li>
+                            <a href="mailto:cmade.spb@mail.ru" class="footer__social_menu_link">
+                                <img src="images/email.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">cmade.spb@mail.ru</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/instagram.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/vk-logo.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson_designer</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="footer__social_menu">
+                        <li>
+                            <a href="www.t.me/peterson.designer" class="footer__social_menu_link">
+                                <img src="images/telegram.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">@peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/Vector.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="" class="footer__social_menu_link">
+                                <img src="images/path64.svg" alt="" class="footer__social_menu_link_icon">
+                                <span class="footer__social_menu_link_txt">peterson.designer</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__address">
+                    <div class="footer__address_item">
+                        <img src="images/location.svg" alt="" class="footer__address_item_icon">
+                        <div class="footer__address_item_content">
+                            <p class="footer__address_item_pr">Санкт-Петербург</p>
+                            <p class="footer__address_item_pr">ул. Уральская, 13</p>
+                        </div>
+                    </div>
+                    <div class="footer__address_item">
+                        <img src="images/phone.svg" alt="" class="footer__address_item_icon">
+                        <div class="footer__address_item_content">
+                            <a href="tel:+79052047774" class="footer__address_item_link">+7(905) 204-77-74</a>
+                            <a href="tel:+78127150275" class="footer__address_item_link">+7(812) 715-02-75</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script type="module" src="js/finishing.js"></script>
+</body>
+
+</html>

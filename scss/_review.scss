@@ -1,0 +1,140 @@
+.review {
+    width: 100%;
+    background: url("../../images/reviewDecor.png") no-repeat center;
+    background-size: cover;
+    padding: 100px;
+
+    @media (max-width: 768px) {
+        padding: 100px 40px;
+    }
+
+    @media (max-width: 480px) {
+        padding: 60px 15px;
+    }
+
+    &__title {
+        position: relative;
+        color: #FFF;
+        font-size: 30px;
+        font-weight: 600;
+
+        @media (max-width: 768px) {
+            margin-bottom: 55px;
+        }
+
+        @media (max-width: 480px) {
+            font-size: 25px;
+            margin-bottom: 60px;
+            padding-left: 20px;
+        }
+
+        &::before {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            border-top: 1px solid #BBCC68;
+            border-left: 1px solid #BBCC68;
+
+            @media (max-width: 480px) {
+                left: 0;
+            }
+        }
+    }
+
+    &__container {
+        position: relative;
+        padding: 60px 100px 0;
+
+        @media (max-width: 768px) {
+            padding: 0;
+        }
+    }
+
+    &__content {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 50px;
+
+        * {
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 30px;
+        }
+
+        @media (max-width: 480px) {
+            grid-gap: 0;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        @media (max-width: 768px) {
+            &:last-child {
+                display: none;
+            }
+        }
+        @media (max-width: 480px) {
+            max-width: 345px;
+        }
+
+        &_pr {
+            margin-bottom: 20px;
+            font-size: 15px;
+            font-weight: 400;
+        }
+
+        &_username {
+            font-style: italic;
+            font-size: 15px;
+            font-weight: 300;
+        }
+    }
+
+    .swiper {
+        padding-bottom: 35px;
+
+        &-pagination {
+            bottom: 0;
+            display: flex;
+            grid-gap: 10px;
+            justify-content: flex-end;
+            bottom: 100px;
+
+            &-bullet {
+                margin: 0 !important;
+                display: block;
+                width: 8px;
+                height: 8px;
+                border-radius: 0;
+                background: #171717;
+
+                &-active {
+                    background: #BBCC68;
+                }
+            }
+        }
+    }
+
+    .reviewBtn {
+        margin: 50px 0 0 auto;
+
+        @media (max-width: 768px) {
+            padding: 18px;
+        }
+
+        @media (max-width: 480px) {
+            margin: 45px auto 0;
+        }
+    }
+}

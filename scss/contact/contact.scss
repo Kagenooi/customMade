@@ -1,0 +1,13 @@
+@import '../main';
+@import '../footer';
+@import '../nav';
+@import '../modals';
+@import '../contact';
+
+.contact {
+    margin-top: 106px;
+
+    @media (max-width: 480px) {
+        margin-top: 87px;           
+    }
+}

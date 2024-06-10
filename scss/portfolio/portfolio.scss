@@ -1,0 +1,133 @@
+@import '../footer';
+@import '../main';
+@import '../portfolio';
+@import '../modals';
+@import '../nav';
+@import '../whiteControls';
+
+.portfolio {
+    margin-top: 90px;
+    padding-top: 105px;
+    padding-bottom: 170px;
+    background: url('../../images/portfolioDecor.png') no-repeat center;
+    background-size: cover;
+
+    @media (max-width: 768px) {
+        background: none;
+        background: #171717;
+        padding-bottom: 0;
+    }
+    @media (max-width: 480px) {
+        padding-top: 60px;               
+    }
+
+    &__acc {
+        margin: 0;
+
+        .swiper {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        &_item {
+            position: relative;
+            grid-template-columns: 1fr;
+
+            &_el {
+
+                &_pic {
+                    width: 100%;
+                }
+            }
+
+            &_container {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 20px;
+
+                @media (max-width: 768px) {
+                    grid-gap: 0;
+                }
+                @media (max-width: 480px) {
+                    grid-template-columns: 1fr;
+                }
+            }
+        }
+    }
+
+    &__controls {
+        position: absolute;
+        right: 70px;
+        bottom: -100px;
+        width: 100%;
+        max-width: 170px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        grid-gap: 10px;
+        z-index: 1080;
+
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+        * {
+            color: #fff;
+        }
+
+        &_btn {
+            display: block;
+            position: relative;
+            z-index: 1070;
+            top: 10px;
+            padding: 5px 0;
+            width: auto;
+            height: auto;
+
+            &::after {
+                display: none;
+            }
+
+            img {
+                transition: .2s;
+                opacity: .5;
+            }
+
+            &:hover {
+                img {
+                    transition: .2s;
+                    opacity: 1;
+                }
+            }
+
+            &.swiper-button-prev {
+                img {
+                    transform: rotateZ(180deg);
+                }
+            }
+        }
+
+        .swiper-pagination {
+            display: block;
+            top: 0;
+            left: 0;
+            position: relative;
+            font-size: 20px;
+            font-weight: 400;
+            z-index: 1060;
+            width: 100%;
+            height: auto;
+            max-width: 50px;
+
+            &-current {
+                font-size: 20px;
+                font-weight: 400;
+            }
+
+            &-total {
+                font-size: 15px;
+                font-weight: 400;
+            }
+        }
+    }
+}

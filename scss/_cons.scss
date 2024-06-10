@@ -1,0 +1,43 @@
+.consultation {
+    display: grid;
+    grid-template-columns: minmax(0px, 710px) minmax(0px, 730px);
+    width: 100%;
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 100px 100px;
+        width: 100%;
+
+        form {
+            width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            padding: 60px 15px;   
+        }
+    }
+
+    .cons {
+        max-width: 480px;
+        background: none;
+        background: #fff;
+        padding: 60px 60px 40px;
+
+
+        &__content {
+            padding: 0;
+        }
+    }
+
+    &__pic {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}

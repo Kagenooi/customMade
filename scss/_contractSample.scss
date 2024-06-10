@@ -1,0 +1,84 @@
+.contractSample {
+    width: 100%;
+    background: url('../../images/contractSample.png') no-repeat center;
+    background-size: cover;
+    padding: 100px 250px 100px 300px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    grid-gap: 30px;
+
+    @media (max-width: 768px) {
+        padding: 100px 40px;
+    }
+    @media (max-width: 480px) {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 60px 15px;
+        grid-gap: 0;
+    }
+    &__desc {
+        max-width: 520px;
+    }
+
+    .reviewBtn {
+
+        @media (max-width: 768px) {
+            padding: 18px;
+            max-width: 220px;
+            min-width: 220px;
+        }
+        @media (max-width: 480px) {
+            background: #fff;
+            color: #000;
+        }
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        grid-gap: 30px;
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 55px;
+
+        @media (max-width: 480px) {
+            grid-gap: 10px;
+            font-size: 25px;
+            margin-bottom: 45px;
+        }
+        &_icon {
+            transform: rotateZ(180deg);
+
+            @media (max-width: 480px) {
+                width: 30px;
+                transform: rotateZ(0deg);
+            }
+
+            &.desktop {
+                display: block;
+                
+                @media (max-width: 480px) {
+                    display: none;
+                }
+            }
+            &.mob {
+                display: none;
+
+                @media (max-width: 480px) {
+                    display: block;
+                }   
+            }
+        }
+    }
+
+    &__pr {
+        font-size: 18px;
+        font-weight: 400;
+
+        @media (max-width: 480px) {
+            margin-bottom: 45px;
+            font-size: 15px;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+@import '../main';
+@import '../nav';
+@import '../footer';
+@import '../modals';
+@import '../servicesHeader';
+@import '../advan';
+@import '../cons';
+@import '../consultation';
+@import '../price';
+
+
+.cons,
+.consultation .cons,
+.consultationForm,
+.consultationSuccess {
+    padding: 0;
+}
+.consultationForm {
+    max-width: 360px;
+}
+.consultation .cons {
+    max-width: 100%;
+}
+
+
+.advan {
+
+    &__content {
+        @media (max-width: 768px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 480px) {
+            grid-template-columns: 1fr;   
+        }
+    }
+}
+
+.price {
+
+    &__content {
+        @media (max-width: 768px) {
+            padding: 100px 140px;
+        }
+        @media (max-width: 480px) {
+            padding: 60px 15px;
+        }
+    }
+}

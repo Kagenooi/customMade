@@ -1,0 +1,99 @@
+.cons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background: url('../../images/indexCons.png') no-repeat center;
+    background-size: cover;
+    padding: 80px;
+
+    @media (max-width: 768px) {
+        padding: 80px 58px;       
+    }
+    @media (max-width: 480px) {
+        padding: 60px 15px;
+    }
+}
+
+
+.consultationSuccess {
+    display: none;
+    width: 100%;
+    max-width: 652px;
+    margin: 0 auto;
+    padding: 60px;
+    background: #fff;
+
+    &__title {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 35px;
+    }
+
+    &__pr {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 45px;
+    }
+
+    &.active {
+        display: block;
+    }
+}
+
+.consultationForm {
+    display: block;
+    padding: 81px 147px;
+    background: #FFFFFFB2;
+    max-width: 652px;
+
+    &.active {
+        display: none;
+    }
+
+    @media (max-width: 480px) {
+        padding: 50px 24px;
+    }
+    &__content {
+        padding: 81px 147px;
+        background: #FFFFFFB2;
+        max-width: 652px;
+
+        @media (max-width: 480px) {
+            padding: 50px 24px;
+        }
+    }
+
+    &__title {
+        font-size: 30px;
+        font-weight: 600;
+        margin-bottom: 40px;
+
+        @media (max-width: 480px) {
+            font-size: 25px;   
+        }
+    }
+
+    &__inp {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 10px 0;
+        font-size: 15px;
+        font-weight: 400;
+        border-bottom: 1px solid #000;
+
+        &::placeholder {
+            font-size: 15px;
+            font-weight: 400;
+            color: #000;
+        }
+    }
+
+    .reviewBtn {
+        margin-top: 30px;
+
+        @media (max-width: 480px) {
+            padding: 18px;   
+        }
+    }
+}
