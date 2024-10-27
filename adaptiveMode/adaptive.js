@@ -4,7 +4,7 @@ export function adaptive() {
     // if (document.body.clientWidth > 820 && document.body.clientWidth < 1440) {
     //     zoom = document.body.clientWidth / 14.4 / 100;
     // }
-    if (document.body.clientWidth > 480 && document.body.clientWidth < 769) {
+    if (document.body.clientWidth > 480 && document.body.clientWidth < 821) {
         zoom = document.body.clientWidth / 7.68 / 100;
     }
     if (document.body.clientWidth < 481) {
