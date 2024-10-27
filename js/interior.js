@@ -3,7 +3,9 @@ import {
 } from '../adaptiveMode/adaptive.js';
 window.zoom = adaptive;
 adaptive();
-window.addEventListener('resize', adaptive());
+window.addEventListener('resize', function() {
+    adaptive()
+});
 
 
 import {
@@ -20,5 +22,3 @@ window.cons = cons;
 window.modalToggle = modalToggle;
 
 document.querySelector('#portDefault').click();
-
-import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs'

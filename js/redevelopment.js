@@ -3,8 +3,9 @@ import {
 } from '../adaptiveMode/adaptive.js';
 window.zoom = adaptive;
 adaptive();
-window.addEventListener('resize', adaptive());
-
+window.addEventListener('resize', function() {
+    adaptive()
+});
 
 import {
     modalToggle,

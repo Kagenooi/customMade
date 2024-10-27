@@ -3,7 +3,9 @@ import {
 } from '../adaptiveMode/adaptive.js';
 window.zoom = adaptive;
 adaptive();
-window.addEventListener('resize', adaptive());
+window.addEventListener('resize', function() {
+    adaptive()
+});
 
 import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 
