@@ -8,13 +8,19 @@
     padding: 19px 0 15px;
 
     @media (max-width: 768px) {
-        display: none;
         max-width: 768px;
 
         .orderBtn {
             padding: 15px;
         }
     }
+
+    @media (max-width: 480px) {
+        .orderBtn {
+            display: none;
+        }
+    }
+
     &::after {
         content: '';
         display: block;
@@ -39,6 +45,10 @@
         @media (max-width: 768px) {
             padding: 0 39px;
         }
+
+        @media (max-width: 480px) {
+            padding: 0 20px;
+        }
     }
 
     &__logo {
@@ -49,6 +59,14 @@
         &_img {
             width: 100%;
             margin-bottom: -43px;
+
+            @media (max-width: 480px) {
+                margin-bottom: -27px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            max-width: 150px;
         }
     }
 
@@ -93,6 +111,10 @@
         display: flex;
         align-items: center;
         grid-gap: 30px;
+
+        @media (max-width: 480px) {
+            grid-gap: 20px;
+        }
     }
 
     &__address {
@@ -101,12 +123,21 @@
         margin-right: 10px;
         grid-gap: 15px;
 
+        @media (max-width: 480px) {
+            gap: 5px;
+        }
+
         &_street,
         &_city {
             color: #fff;
             font-style: normal;
             font-size: 15px;
             font-weight: 400;
+
+            @media (max-width: 480px) {
+                font-size: 10px;
+                color: #7E7E7E;
+            }
         }
     }
 
@@ -117,15 +148,22 @@
             display: grid;
             grid-gap: 12px;
 
+            @media (max-width: 480px) {
+                position: relative;
+                z-index: 1080;
+            }
+
             .txt {
                 font-size: 15px;
                 font-weight: 600;
                 color: #fff;
                 opacity: 1;
                 transition: .2s;
+
+                @media (max-width: 480px) {
+                    display: none;
+                }
             }
-
-
 
             .lines {
                 display: grid;
@@ -133,6 +171,11 @@
                 width: 100%;
                 max-height: 19px;
                 height: 19px;
+
+                @media (max-width: 480px) {
+                    width: 50px;
+                    min-width: 50px;
+                }
 
                 .line {
                     display: block;
@@ -167,12 +210,20 @@
                         transition: .2s;
                         transform: rotateZ(45deg);
                         margin-top: -5px;
+
+                        @media (max-width: 480px) {
+                            margin-top: 10px;
+                        }
                     }
 
                     .line:nth-child(3) {
                         transition: .2s;
                         transform: rotateZ(-45deg);
                         margin-top: -23px;
+
+                        @media (max-width: 480px) {
+                            margin-top: -17px;
+                        }
                     }
                 }
             }
@@ -188,6 +239,13 @@
             display: none;
             opacity: 0;
             transition: .2s;
+
+            @media (max-width: 480px) {
+                top: -25px;
+                right: -20px;
+                width: 375px;
+                z-index: 1010;
+            }
 
             &.active {
                 display: block;

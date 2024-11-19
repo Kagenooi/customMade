@@ -209,11 +209,15 @@ select {
 }
 @media (max-width: 768px) {
   .navbar {
-    display: none;
     max-width: 768px;
   }
   .navbar .orderBtn {
     padding: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar .orderBtn {
+    display: none;
   }
 }
 .navbar::after {
@@ -241,6 +245,11 @@ select {
     padding: 0 39px;
   }
 }
+@media (max-width: 480px) {
+  .navbar__wrapper {
+    padding: 0 20px;
+  }
+}
 .navbar__logo {
   display: block;
   width: 100%;
@@ -249,6 +258,16 @@ select {
 .navbar__logo_img {
   width: 100%;
   margin-bottom: -43px;
+}
+@media (max-width: 480px) {
+  .navbar__logo_img {
+    margin-bottom: -27px;
+  }
+}
+@media (max-width: 480px) {
+  .navbar__logo {
+    max-width: 150px;
+  }
 }
 .navbar__menu {
   display: flex;
@@ -289,17 +308,33 @@ select {
   align-items: center;
   grid-gap: 30px;
 }
+@media (max-width: 480px) {
+  .navbar__right {
+    grid-gap: 20px;
+  }
+}
 .navbar__address {
   display: flex;
   flex-direction: column;
   margin-right: 10px;
   grid-gap: 15px;
 }
+@media (max-width: 480px) {
+  .navbar__address {
+    gap: 5px;
+  }
+}
 .navbar__address_street, .navbar__address_city {
   color: #fff;
   font-style: normal;
   font-size: 15px;
   font-weight: 400;
+}
+@media (max-width: 480px) {
+  .navbar__address_street, .navbar__address_city {
+    font-size: 10px;
+    color: #7E7E7E;
+  }
 }
 .navbar__burger {
   position: relative;
@@ -308,6 +343,12 @@ select {
   display: grid;
   grid-gap: 12px;
 }
+@media (max-width: 480px) {
+  .navbar__burger_btn {
+    position: relative;
+    z-index: 1080;
+  }
+}
 .navbar__burger_btn .txt {
   font-size: 15px;
   font-weight: 600;
@@ -315,12 +356,23 @@ select {
   opacity: 1;
   transition: 0.2s;
 }
+@media (max-width: 480px) {
+  .navbar__burger_btn .txt {
+    display: none;
+  }
+}
 .navbar__burger_btn .lines {
   display: grid;
   grid-gap: 8px;
   width: 100%;
   max-height: 19px;
   height: 19px;
+}
+@media (max-width: 480px) {
+  .navbar__burger_btn .lines {
+    width: 50px;
+    min-width: 50px;
+  }
 }
 .navbar__burger_btn .lines .line {
   display: block;
@@ -350,10 +402,20 @@ select {
   transform: rotateZ(45deg);
   margin-top: -5px;
 }
+@media (max-width: 480px) {
+  .navbar__burger_btn.active .lines .line:nth-child(1) {
+    margin-top: 10px;
+  }
+}
 .navbar__burger_btn.active .lines .line:nth-child(3) {
   transition: 0.2s;
   transform: rotateZ(-45deg);
   margin-top: -23px;
+}
+@media (max-width: 480px) {
+  .navbar__burger_btn.active .lines .line:nth-child(3) {
+    margin-top: -17px;
+  }
 }
 .navbar__burger_content {
   min-width: 350px;
@@ -365,6 +427,14 @@ select {
   display: none;
   opacity: 0;
   transition: 0.2s;
+}
+@media (max-width: 480px) {
+  .navbar__burger_content {
+    top: -25px;
+    right: -20px;
+    width: 375px;
+    z-index: 1010;
+  }
 }
 .navbar__burger_content.active {
   display: block;
