@@ -24,8 +24,10 @@ new Swiper("#headerSwiper", {
     slidesPerView: 1,
     spaceBetween: 30,
     loop: true,
+    autoplay: true,
+    delay: 3000,
     pagination: {
-        el: ".swiper-pagination",
+        el: "#headerSwiperPagination",
         type: "fraction",
     },
     navigation: {
